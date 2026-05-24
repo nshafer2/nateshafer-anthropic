@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Nathan Shafer — application for Head of Partner Success at Anthropic.">
+<title>Nathan Shafer — Head of Partner Success Application</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400;9..144,500;9..144,600;9..144,700&family=JetBrains+Mono:wght@400;500;600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --dark: #141413;
+    --light: #faf9f5;
+    --paper: #f3f1e8;
+    --ink: #1a1a17;
+    --mid: #5a584f;
+    --rule: #8a8880;
+    --orange: #c25a37;
+    --orange-bright: #d97757;
+    --blue: #2c5a8a;
+    --blue-bright: #4a7eb0;
+    --green: #5a6e44;
+    --focus-ring: #1a5490;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
+  body {
+    font-family: 'Fraunces', Georgia, serif;
+    background: var(--paper);
+    color: var(--ink);
+    line-height: 1.6;
+    font-size: 17px;
+    background-image:
+      radial-gradient(circle at 20% 10%, rgba(194,90,55,0.04), transparent 50%),
+      radial-gradient(circle at 80% 80%, rgba(44,90,138,0.04), transparent 50%);
+    background-attachment: fixed;
+    min-height: 100vh;
+  }
+
+  .skip-link {
+    position: absolute;
+    left: -9999px;
+    top: 0;
+    background: var(--dark);
+    color: var(--light);
+    padding: 12px 20px;
+    text-decoration: none;
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    z-index: 1000;
+  }
+  .skip-link:focus {
+    left: 16px;
+    top: 16px;
+    outline: 3px solid var(--orange);
+    outline-offset: 2px;
+  }
+
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible {
+    outline: 3px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+  }
+
+  /* ── NAV ── */
+  nav {
+    position: sticky;
+    top: 0;
+    background: var(--paper);
+    border-bottom: 1px solid var(--rule);
+    z-index: 100;
+    padding: 16px 0;
+  }
+  nav .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 32px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  nav .logo {
+    font-family: 'Fraunces', serif;
+    font-weight: 500;
+    font-size: 20px;
+    color: var(--ink);
+    font-style: italic;
+  }
+  nav .logo span { color: var(--orange); }
+  nav ul {
+    list-style: none;
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+  }
+  nav a {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    color: var(--ink);
+    text-decoration: none;
+    font-weight: 500;
+    padding: 6px 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  nav a:hover,
+  nav a:focus {
+    color: var(--orange);
+    text-decoration: underline;
+    text-underline-offset: 4px;
+    text-decoration-thickness: 2px;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 100px 32px 80px;
+  }
+  .hero .doc-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 56px;
+    flex-wrap: wrap;
+    gap: 16px;
+  }
+  .hero .doc-meta .label,
+  .hero .doc-meta .role {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.18em;
+    color: var(--mid);
+  }
+  .hero .doc-meta .role span { color: var(--orange); }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(40px, 6.5vw, 76px);
+    font-weight: 400;
+    line-height: 0.98;
+    letter-spacing: -0.025em;
+    margin-bottom: 36px;
+    max-width: 18ch;
+    font-variation-settings: 'opsz' 120;
+  }
+  .hero h1 em {
+    font-style: italic;
+    color: var(--orange);
+    font-weight: 500;
+  }
+
+  .hero .opener p {
+    font-size: 19px;
+    line-height: 1.6;
+    max-width: 64ch;
+    color: var(--ink);
+    margin-bottom: 22px;
+  }
+  .hero .opener p:last-of-type { margin-bottom: 0; }
+  .hero .opener .sharp {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-style: italic;
+    color: var(--orange);
+    margin-top: 36px;
+    max-width: 50ch;
+  }
+
+  .hero .contact {
+    margin-top: 56px;
+    padding-top: 32px;
+    border-top: 1px solid var(--rule);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 13px;
+    color: var(--ink);
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+    font-style: normal;
+  }
+  .hero .contact a {
+    color: var(--ink);
+    text-decoration: underline;
+    text-decoration-color: var(--rule);
+    text-underline-offset: 4px;
+    padding: 2px 0;
+  }
+  .hero .contact a:hover,
+  .hero .contact a:focus {
+    color: var(--orange);
+    text-decoration-color: var(--orange);
+    text-decoration-thickness: 2px;
+  }
+
+  /* ── SECTIONS ── */
+  section {
+    padding: 80px 0;
+    border-top: 1px solid var(--rule);
+  }
+  section.dark {
+    background: var(--ink);
+    color: var(--light);
+    border-top: none;
+  }
+  section.dark .section-num { color: var(--orange-bright); }
+  section.dark .section-title,
+  section.dark .prose p { color: var(--light); }
+  section.dark .section-title em { color: var(--orange-bright); }
+
+  .section-num {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--orange);
+    margin-bottom: 12px;
+    display: block;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(32px, 4.5vw, 52px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    margin-bottom: 28px;
+    max-width: 22ch;
+  }
+  .section-title em { font-style: italic; color: var(--orange); font-weight: 500; }
+
+  .prose {
+    max-width: 62ch;
+    margin-bottom: 48px;
+  }
+  .prose p {
+    font-size: 18px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin-bottom: 20px;
+  }
+  .prose p:last-child { margin-bottom: 0; }
+
+  /* ── STATS / KEY OUTCOMES ── */
+  .stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 0;
+    list-style: none;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+  .stat {
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+    padding: 32px 28px;
+  }
+  .stat .num {
+    font-family: 'Fraunces', serif;
+    font-size: 48px;
+    font-weight: 400;
+    line-height: 1;
+    margin-bottom: 12px;
+    font-variation-settings: 'opsz' 144;
+  }
+  .stat:nth-child(4n+1) .num { color: var(--orange); }
+  .stat:nth-child(4n+2) .num { color: var(--blue); }
+  .stat:nth-child(4n+3) .num { color: var(--green); }
+  .stat:nth-child(4n+4) .num { color: var(--orange); }
+  .stat .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--ink);
+    line-height: 1.55;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+
+  /* ── CLAUDE SKILLS ── */
+  .skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 0;
+    list-style: none;
+    border-top: 1px solid var(--rule);
+    border-left: 1px solid var(--rule);
+  }
+  .skill-card {
+    border-right: 1px solid var(--rule);
+    border-bottom: 1px solid var(--rule);
+    background: var(--paper);
+    padding: 32px 28px;
+    transition: background 0.2s;
+  }
+  .skill-card:hover { background: var(--light); }
+  .skill-card .tag {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 10px;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 14px;
+    display: block;
+  }
+  .skill-card h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    margin-bottom: 12px;
+    line-height: 1.25;
+  }
+  .skill-card p {
+    font-size: 15px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+
+  /* ── CASE STUDIES ── */
+  .cases { margin-top: 16px; }
+  .case {
+    padding: 36px 0;
+    border-top: 1px solid var(--rule);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 40px;
+  }
+  .case:last-child { border-bottom: 1px solid var(--rule); }
+  .case .label {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--orange);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    margin-bottom: 10px;
+  }
+  .case h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.2;
+    letter-spacing: -0.01em;
+    margin-bottom: 14px;
+  }
+  .case .client {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--mid);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .case .narrative {
+    font-size: 17px;
+    line-height: 1.6;
+  }
+  .case .narrative p { margin-bottom: 14px; }
+  .case .narrative p:last-child { margin-bottom: 0; }
+  .case .outcome {
+    font-family: 'Fraunces', serif;
+    font-style: italic;
+    color: var(--orange);
+    font-size: 18px;
+    margin-top: 16px;
+    padding-top: 16px;
+    border-top: 1px dashed var(--rule);
+  }
+  @media (max-width: 720px) {
+    .case { grid-template-columns: 1fr; gap: 20px; }
+  }
+
+  /* ── EXPERIENCE ── */
+  .role {
+    padding: 36px 0;
+    border-top: 1px solid var(--rule);
+  }
+  .role:last-child { border-bottom: 1px solid var(--rule); }
+  .role .head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 16px;
+    margin-bottom: 20px;
+  }
+  .role h3 {
+    font-family: 'Fraunces', serif;
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.3;
+  }
+  .role h3 .company { color: var(--orange); }
+  .role h3 .title-sep { color: var(--mid); margin: 0 6px; font-weight: 400; }
+  .role .dates {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--mid);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .role ul {
+    list-style: none;
+    padding-left: 0;
+  }
+  .role li {
+    position: relative;
+    padding-left: 22px;
+    margin-bottom: 14px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .role li::before {
+    content: "—";
+    position: absolute;
+    left: 0;
+    color: var(--orange);
+    font-weight: 600;
+  }
+  .role li strong {
+    font-family: 'Fraunces', serif;
+    font-weight: 600;
+    color: var(--ink);
+  }
+
+  /* ── Q&A ── */
+  .chatbot {
+    background: var(--ink);
+    color: var(--light);
+    border-radius: 4px;
+    padding: 48px;
+    margin-top: 16px;
+  }
+  .preset-questions {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-bottom: 28px;
+  }
+  .preset-questions button {
+    background: transparent;
+    border: 1px solid var(--light);
+    color: var(--light);
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 12px;
+    font-weight: 500;
+    padding: 9px 16px;
+    border-radius: 999px;
+    cursor: pointer;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+  .preset-questions button:hover {
+    background: var(--orange-bright);
+    border-color: var(--orange-bright);
+    color: var(--ink);
+  }
+  .preset-questions button:focus-visible {
+    outline: 3px solid var(--orange-bright);
+    outline-offset: 3px;
+  }
+  .chat-window {
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 4px;
+    padding: 24px;
+    min-height: 140px;
+    max-height: 460px;
+    overflow-y: auto;
+    margin-bottom: 16px;
+  }
+  .chat-msg {
+    margin-bottom: 22px;
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  .chat-msg:last-child { margin-bottom: 0; }
+  .chat-msg .who {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    margin-bottom: 8px;
+    color: var(--light);
+  }
+  .chat-msg.user .who { color: var(--blue-bright); }
+  .chat-msg.bot .who { color: var(--orange-bright); }
+  .chat-input-row {
+    display: flex;
+    gap: 12px;
+  }
+  .chat-input-row input {
+    flex: 1;
+    background: rgba(255,255,255,0.1);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: var(--light);
+    font-family: 'Fraunces', serif;
+    font-size: 16px;
+    padding: 14px 18px;
+    border-radius: 4px;
+    outline: none;
+  }
+  .chat-input-row input:focus {
+    border-color: var(--orange-bright);
+  }
+  .chat-input-row input::placeholder { color: rgba(250,249,245,0.7); }
+  .btn {
+    font-family: 'JetBrains Mono', monospace;
+    font-weight: 600;
+    font-size: 13px;
+    padding: 14px 24px;
+    border-radius: 4px;
+    border: 1px solid transparent;
+    cursor: pointer;
+    transition: opacity 0.2s, transform 0.1s;
+    text-decoration: none;
+    display: inline-block;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+  }
+  .btn:active { transform: translateY(1px); }
+  .btn-primary { background: var(--orange); color: var(--light); border-color: var(--orange); }
+  .btn-primary:hover { background: var(--ink); border-color: var(--ink); }
+  .btn-secondary { background: var(--paper); color: var(--ink); border-color: var(--ink); }
+  .btn-secondary:hover { background: var(--ink); color: var(--paper); }
+  .escalate {
+    margin-top: 18px;
+    font-size: 14px;
+    color: var(--light);
+    font-family: 'JetBrains Mono', monospace;
+  }
+  .escalate a {
+    color: var(--orange-bright);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-thickness: 2px;
+  }
+  .escalate a:hover, .escalate a:focus { color: var(--light); }
+
+  /* ── FOOTER ── */
+  footer {
+    background: var(--ink);
+    color: var(--light);
+    padding: 80px 32px 50px;
+    margin-top: 0;
+    text-align: center;
+    border-top: 1px solid var(--rule);
+  }
+  footer .footer-inner {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+  footer .pullquote {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(24px, 3vw, 36px);
+    font-style: italic;
+    font-weight: 400;
+    line-height: 1.3;
+    margin-bottom: 40px;
+    color: var(--light);
+    font-variation-settings: 'opsz' 120;
+  }
+  footer .pullquote em { color: var(--orange-bright); }
+  footer .footer-actions {
+    display: flex;
+    gap: 14px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+  }
+  footer .footer-meta {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 11px;
+    color: var(--light);
+    padding-top: 32px;
+    border-top: 1px solid rgba(255,255,255,0.25);
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+  }
+  footer a:focus-visible {
+    outline: 3px solid var(--orange-bright);
+    outline-offset: 3px;
+  }
+
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    white-space: nowrap;
+    border: 0;
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 60px 24px 50px; }
+    section { padding: 60px 0; }
+    .container { padding: 0 24px; }
+    .chatbot { padding: 32px 24px; }
+  }
+
+  @media (prefers-contrast: more) {
+    :root {
+      --rule: #3a3a36;
+      --orange: #a03f1c;
+      --blue: #2c5a8a;
+    }
+  }
+</style>
+</head>
+<body>
+
+<a href="#main" class="skip-link">Skip to main content</a>
+
+<nav aria-label="Primary navigation">
+  <div class="nav-inner">
+    <div class="logo">Nathan Shafer<span>.</span></div>
+    <ul>
+      <li><a href="#claude">Claude</a></li>
+      <li><a href="#cases">Engagements</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#qa">Q&amp;A</a></li>
+    </ul>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="hero">
+  <div class="doc-meta">
+    <span class="label">Application / v1</span>
+    <span class="role">Head of Partner Success <span>·</span> Anthropic</span>
+  </div>
+
+  <h1>15+ years at the intersection of <em>design, strategy, and technology</em>.</h1>
+
+  <div class="opener">
+    <p>I am currently Managing Director at Accenture Song, overseeing a premier Capital Markets portfolio that includes the largest FS client within Song by revenue. 13 years at Accenture, helping scale Song's design and delivery practice into a global capability.</p>
+    <p>I use Claude every day. I have built reusable Claude skills, playbooks, and trainings that other Song teams now adopt as their default for AI-assisted delivery. I have led the rollout of a CCaaS platform with agentic voice capabilities into a regulated wealth management environment.</p>
+    <p class="sharp">The practitioner-side experience the Partner Success role needs is the experience I have spent my career building.</p>
+  </div>
+
+  <address class="contact">
+    <span>Chicago, IL</span>
+    <a href="tel:+16302127440" aria-label="Phone 630-212-7440">(630) 212-7440</a>
+    <a href="mailto:nshafer2@gmail.com">nshafer2@gmail.com</a>
+    <a href="https://linkedin.com/in/nateshafer" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+  </address>
+</header>
+
+<!-- ── OUTCOMES ── -->
+<section aria-labelledby="outcomes-title">
+  <div class="container">
+    <span class="section-num">01 · Outcomes</span>
+    <h2 class="section-title" id="outcomes-title">The numbers behind the work.</h2>
+    <div class="prose">
+      <p>Partner success in a usage-based business is measured in customer behavior, not contract signature. The metrics that matter are adoption, retention, and expansion. Here is what that looks like when it goes well.</p>
+    </div>
+    <ul class="stats" aria-label="Key outcomes">
+      <li class="stat"><div class="num">$91M</div><div class="label">Sales generated over two years on the largest Capital Markets account in N.A.</div></li>
+      <li class="stat"><div class="num">$30B</div><div class="label">Net New Assets Under Management driven in 18 months</div></li>
+      <li class="stat"><div class="num">60K</div><div class="label">Practitioners onboarded in under nine months on the Salesforce FSC rollout</div></li>
+      <li class="stat"><div class="num">106%</div><div class="label">YTD attainment against FY26 sales targets through H1</div></li>
+      <li class="stat"><div class="num">3</div><div class="label">Continents covered by the 60+ person multidisciplinary team I built from scratch</div></li>
+      <li class="stat"><div class="num">4x</div><div class="label">Increase in lead volumes through AI-optimized marketing strategies</div></li>
+      <li class="stat"><div class="num">$300M</div><div class="label">Total Customer Lifetime Value architected for an Insurance Agent Marketing Hub</div></li>
+      <li class="stat"><div class="num">$100M</div><div class="label">Annual media spend under integrated management at the Agency of Record</div></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── CLAUDE PRACTITIONER ── -->
+<section id="claude" class="dark" aria-labelledby="claude-title">
+  <div class="container">
+    <span class="section-num">02 · Claude Practitioner</span>
+    <h2 class="section-title" id="claude-title">Seven Claude assets. <em>Adopted by my colleagues.</em></h2>
+    <div class="prose">
+      <p>The Partner Success role wants someone fluent enough to coach partner architects on how to use Claude in real client work. The way to tell whether someone has that fluency is whether they have built things that other practitioners actually use.</p>
+      <p>The list below is what I have built inside Song. None of these are pilots or innovation experiments. They are workflows, Projects, prompt libraries, dashboards, and trainings that I built because I needed them for my own client work — and that other Song colleagues now use in theirs.</p>
+    </div>
+
+    <ul class="skills-grid" aria-label="Claude assets and trainings">
+      <li class="skill-card" style="background: rgba(250,249,245,0.06); color: var(--light);">
+        <span class="tag">Dashboard</span>
+        <h3 style="color: var(--light)">QBR Prep &amp; Dashboards</h3>
+        <p style="color: rgba(250,249,245,0.85)">Claude-powered QBR pre-reads and dashboards built around adoption trends, at-risk surfacing, and the questions clients actually ask. Adopted by other Song account leads ahead of their own reviews.</p>
+      </li>
+      <li class="skill-card" style="background: rgba(250,249,245,0.06); color: var(--light);">
+        <span class="tag">Workflow</span>
+        <h3 style="color: var(--light)">Sales Pipeline Analysis</h3>
+        <p style="color: rgba(250,249,245,0.85)">Structured Claude workflow for pipeline review — surfacing stalls, identifying expansion paths, and pressure-testing forecast confidence. Used in weekly pipeline reviews across multiple accounts.</p>
+      </li>
+      <li class="skill-card" style="background: rgba(250,249,245,0.06); color: var(--light);">
+        <span class="tag">Project</span>
+        <h3 style="color: var(--light)">Client Engagement Research</h3>
+        <p style="color: rgba(250,249,245,0.85)">Claude Project for client and prospect research — earnings calls, exec moves, strategic priorities, recent press. Standard prep tool before client meetings on multiple Song accounts.</p>
+      </li>
+      <li class="skill-card" style="background: rgba(250,249,245,0.06); color: var(--light);">
+        <span class="tag">Workflow</span>
+        <h3 style="color: var(--light)">Account Health Reads</h3>
+        <p style="color: rgba(250,249,245,0.85)">Synthesizes sales data, delivery notes, and client signals into structured account health reads with leading indicators. Built so account leads can spot a problem before the client raises it.</p>
+      </li>
+      <li class="skill-card" style="background: rgba(250,249,245,0.06); color: var(--light);">
+        <span class="tag">Templates</span>
+        <h3 style="color: var(--light)">Proposal &amp; SOW Drafting</h3>
+        <p style="color: rgba(250,249,245,0.85)">Prompt library for turning discovery notes into proposal scaffolding — outcomes, success metrics, investment justification. Keeps teams on the outcome-vs-hours discipline that wins usage-based work.</p>
+      </li>
+      <li class="skill-card" style="background: rgba(250,249,245,0.06); color: var(--light);">
+        <span class="tag">Training</span>
+        <h3 style="color: var(--light)">Prompt Design for Song</h3>
+        <p style="color: rgba(250,249,245,0.85)">Workshops for Song peers on designing prompts that produce client-ready output. Grounding, constraint, and verification — the discipline that separates AI use from AI productivity.</p>
+      </li>
+      <li class="skill-card" style="background: rgba(250,249,245,0.06); color: var(--light);">
+        <span class="tag">Workflow</span>
+        <h3 style="color: var(--light)">Meeting Prep &amp; Summary</h3>
+        <p style="color: rgba(250,249,245,0.85)">End-to-end workflow for prepping internal and client meetings, capturing decisions, and producing follow-up notes. Reclaims hours per week and used across the account team.</p>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ── CASE STUDIES ── -->
+<section id="cases" aria-labelledby="cases-title">
+  <div class="container">
+    <span class="section-num">03 · Engagements</span>
+    <h2 class="section-title" id="cases-title">Four projects with one wealth management firm.</h2>
+    <div class="prose">
+      <p>One client account, four distinct workstreams. Service design. Media and creative. Agentic AI delivery. Adoption at scale. These are the engagements behind the numbers above — and the experience that maps most directly to what the Partner Success role asks for.</p>
+    </div>
+
+    <div class="cases">
+      <article class="case">
+        <div>
+          <p class="label">Service Design</p>
+          <h3>Onboarding &amp; asset movement redesign.</h3>
+          <p class="client">Top wealth management firm · 2024 – Present</p>
+        </div>
+        <div class="narrative">
+          <p>The brief was to redesign the end-to-end client onboarding and asset movement journey. The success metric was AUM growth, not project completion.</p>
+          <p>I co-created a new design offering integrating AARU, Wevo.AI, D-Scout, and Figma AI to accelerate the discover-define-develop cycle. Ten AI-validated concepts in under six weeks.</p>
+          <p class="outcome">$30B in Net New AUM in 18 months. 4x lead volume increase. Top North America finisher in Accenture's V360 Awards.</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <p class="label">New Offering</p>
+          <h3>Integrated Agency of Record.</h3>
+          <p class="client">Top wealth management firm · 2022 – Present</p>
+        </div>
+        <div class="narrative">
+          <p>Accenture had never run an Integrated Agency of Record before. Creative, media, and intelligence services delivered under one model for a single client.</p>
+          <p>I originated and oversaw the build. The account team grew to 60+ resources across three continents — Strategy, Design, Marketing, and Operations — supervised end-to-end.</p>
+          <p class="outcome">$100M in annual media spend under integrated management. $91M in sales over two years. Largest Capital Markets account in N.A. by revenue.</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <p class="label">Agentic AI</p>
+          <h3>CCaaS and agentic voice rollout.</h3>
+          <p class="client">Top wealth management firm · 2023 – 2025</p>
+        </div>
+        <div class="narrative">
+          <p>The brief was to modernize the contact center for advisors and clients by deploying a CCaaS platform with agentic voice capabilities. AI-powered conversational agents in a regulated environment.</p>
+          <p>Led the rollout. The work surfaced what regulated enterprises actually need from agentic AI: guardrails, audit trails, escalation patterns, and human-in-the-loop discipline.</p>
+          <p class="outcome">Hands-on experience deploying agentic AI in a high-stakes enterprise context — relevant context for coaching partner architects deploying similar systems.</p>
+        </div>
+      </article>
+
+      <article class="case">
+        <div>
+          <p class="label">Adoption At Scale</p>
+          <h3>The largest Salesforce FSC rollout in history.</h3>
+          <p class="client">Top wealth management firm · 2022 – 2024</p>
+        </div>
+        <div class="narrative">
+          <p>60,000 practitioners. Under nine months. A rollout where feature delivery alone would fail.</p>
+          <p>Led the delivery, overseeing training and adoption across the practitioner base. Developed adoption frameworks and measurement strategies built around behavior change, not feature awareness.</p>
+          <p class="outcome">20,000 advisors and 40,000 associates onboarded on time. Frameworks adopted as the global playbook for future Accenture design deployments.</p>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ── EXPERIENCE ── -->
+<section id="experience" aria-labelledby="exp-title">
+  <div class="container">
+    <span class="section-num">04 · Professional History</span>
+    <h2 class="section-title" id="exp-title">13 years at Accenture, helping scale Song.</h2>
+
+    <article class="role">
+      <div class="head">
+        <h3><span class="company">Accenture Song</span><span class="title-sep">·</span>Managing Director, Capital Markets Account Lead</h3>
+        <span class="dates">June 2025 — Present</span>
+      </div>
+      <ul>
+        <li><strong>Account leadership.</strong> Oversee a high-value portfolio of Capital Markets clients, including the largest Song FS account by Sales + Revenue for FY26. Exceeding sales goals at 106% YTD through H1 and helping the account achieve Mega-Diamond status in 2026.</li>
+        <li><strong>Strategic design advisory.</strong> Co-creating new design offerings integrating Gen-AI tools like AARU, Wevo.AI, D-Scout, and Figma AI to accelerate the design process — redesigning the onboarding journey into 10 AI-validated concepts in under 6 weeks.</li>
+        <li><strong>Award-winning results.</strong> Drove $30B in Net New Assets Under Management in 18 months and increased lead volumes by 4x through optimized marketing strategies. Top finisher in North America for Accenture's V360 Awards.</li>
+      </ul>
+    </article>
+
+    <article class="role">
+      <div class="head">
+        <h3><span class="company">Accenture Song</span><span class="title-sep">·</span>Associate Director, Account Lead</h3>
+        <span class="dates">June 2022 — June 2025</span>
+      </div>
+      <ul>
+        <li><strong>Global team orchestration.</strong> Supervise a multidisciplinary account team of 60+ resources across 3 continents, integrating Strategy, Design, Marketing, and Operations.</li>
+        <li><strong>Revenue generation.</strong> Drove unprecedented growth on key accounts, resulting in $91M in sales over two years and establishing the largest Capital Markets account in N.A. by revenue.</li>
+        <li><strong>Integrated Agency innovation.</strong> Originated and oversaw Accenture's first-ever Integrated Agency of Record, providing creative and intelligence services for $100M in annual media spend.</li>
+        <li><strong>Agentic AI delivery.</strong> Led the rollout of a CCaaS platform with agentic voice capabilities, bringing AI-powered conversational agents into the advisor and client servicing experience.</li>
+        <li><strong>Large-scale deployment.</strong> Led the delivery of the largest Salesforce Financial Service Cloud rollout in history, overseeing training and adoption for 20,000 advisors and 40,000 associates in under 9 months.</li>
+        <li><strong>Operational playbooks.</strong> Developed unique adoption frameworks and measurement strategies that serve as the global playbook for future design deployments.</li>
+      </ul>
+    </article>
+
+    <article class="role">
+      <div class="head">
+        <h3><span class="company">Accenture</span><span class="title-sep">·</span>Senior Manager, Financial Services Lead</h3>
+        <span class="dates">June 2017 — May 2022</span>
+      </div>
+      <ul>
+        <li><strong>Growth leadership.</strong> Scaled a Fortune 50 insurer account to $30M+ in sales while managing a cross-functional team of 20+.</li>
+        <li><strong>Product ecosystem design.</strong> Defined the product vision and backlog for an Insurance Agent Marketing Hub driving $300M in Total Customer Lifetime Value.</li>
+        <li><strong>Digital rationalization.</strong> Partnered with Marketing and IT teams to rationalize technologies and design experiences for a 19,000-person agent force.</li>
+        <li><strong>Executive strategy.</strong> Partnered with C-suite stakeholders to re-orient 10+ product teams around a new operating model.</li>
+        <li><strong>GTM strategy.</strong> Led the solutioning for a first-of-its-kind direct-to-consumer SMB insurance product, achieving product-marketing fit in 9 months.</li>
+      </ul>
+    </article>
+
+    <article class="role">
+      <div class="head">
+        <h3><span class="company">Accenture</span><span class="title-sep">·</span>Digital Marketing Manager / Consultant</h3>
+        <span class="dates">April 2013 — June 2017</span>
+      </div>
+      <ul>
+        <li><strong>Modernization.</strong> Modernized customer service channels for a Top 5 bank. WhatsApp and self-service. $20M+ in identified cost savings.</li>
+        <li><strong>Adoption.</strong> Agile pilot programs that delivered a 25% increase in leads and 95% practitioner adoption.</li>
+      </ul>
+    </article>
+
+    <article class="role">
+      <div class="head">
+        <h3><span class="company">Cision</span><span class="title-sep">·</span>Digital Media Specialist</h3>
+        <span class="dates">April 2011 — July 2013</span>
+      </div>
+      <ul>
+        <li>Onboarded clients and implemented social media listening strategies using Radian6 and Buddy Media. Early work translating data signals into client action.</li>
+      </ul>
+    </article>
+  </div>
+</section>
+
+<!-- ── Q&A ── -->
+<section id="qa" aria-labelledby="qa-title">
+  <div class="container">
+    <span class="section-num">05 · Q&amp;A</span>
+    <h2 class="section-title" id="qa-title">Questions the hiring panel will probably ask.</h2>
+    <div class="prose">
+      <p>These are the questions I would expect from the panel, and how I would answer them. Use the buttons or write your own. Anything you want to go deeper on, the email link routes straight to my inbox.</p>
+    </div>
+
+    <div class="chatbot">
+      <div class="preset-questions" role="group" aria-label="Pre-written questions">
+        <button type="button" onclick="ask('claude')">Claude day-to-day?</button>
+        <button type="button" onclick="ask('scratch')">Built new offerings?</button>
+        <button type="button" onclick="ask('partner-selection')">Which partners get attention?</button>
+        <button type="button" onclick="ask('usage-based')">Usage-based metrics?</button>
+        <button type="button" onclick="ask('gsi')">GSI delivery practices?</button>
+        <button type="button" onclick="ask('agentic')">Agentic AI deployment?</button>
+        <button type="button" onclick="ask('alliances')">Working with alliances?</button>
+        <button type="button" onclick="ask('enablement')">Scalable enablement?</button>
+        <button type="button" onclick="ask('co-investment')">Co-investment decisions?</button>
+      </div>
+
+      <div class="chat-window" id="chatWindow" role="log" aria-live="polite" aria-atomic="false" aria-label="Conversation history">
+        <div class="chat-msg bot">
+          <div class="who">Nathan</div>
+          <div>Pick a question above, or write your own below. The email link sends anything you want explored further straight to my inbox.</div>
+        </div>
+      </div>
+
+      <div class="chat-input-row">
+        <label for="chatInput" class="sr-only">Type your question</label>
+        <input type="text" id="chatInput" placeholder="Type your question..." aria-label="Type your question" onkeydown="if(event.key==='Enter') submitCustom()">
+        <button type="button" class="btn btn-primary" onclick="submitCustom()">Ask</button>
+      </div>
+
+      <p class="escalate">
+        Want more depth? <a id="emailLink" href="mailto:nshafer2@gmail.com?subject=Question%20from%20your%20interactive%20resume">Email me directly →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="footer-inner">
+    <p class="pullquote">15+ years executing for clients. Now interested in the question of how to <em>scale that motion across an ecosystem of partners</em>.</p>
+    <div class="footer-actions">
+      <a class="btn btn-primary" href="mailto:nshafer2@gmail.com?subject=Head%20of%20Partner%20Success">Email Nathan</a>
+      <a class="btn btn-secondary" href="https://linkedin.com/in/nateshafer" target="_blank" rel="noopener noreferrer">LinkedIn<span class="sr-only"> (opens in new tab)</span></a>
+      <a class="btn btn-secondary" href="tel:+16302127440">(630) 212-7440</a>
+    </div>
+    <p class="footer-meta">Nathan Shafer · Chicago · Anthropic Application · 2026</p>
+  </div>
+</footer>
+
+<script>
+  const responses = {
+    'claude': {
+      q: "How do you use Claude day-to-day?",
+      a: "Every day. Not as a chat tool — as embedded operating leverage. I have built seven Claude assets that I use across my own client work and that other Song colleagues have adopted for theirs: QBR prep and dashboards, sales pipeline analysis, client engagement research, account health reads, proposal and SOW drafting, prompt design training for peers, and meeting prep and summary workflows. The Anthropic JD asks candidates to walk through a recent deliverable. I have several ready."
+    },
+    'scratch': {
+      q: "Have you built new offerings from zero?",
+      a: "Yes. I originated and oversaw Accenture's first-ever Integrated Agency of Record — a new delivery model for the firm, combining creative and intelligence services for $100M in annual media spend. No prior playbook to inherit. I built the operating model, brought together the 60+ person team across three continents, and ran it. The transferable skill is taking on a new motion the org has never run before and figuring out how to make it work."
+    },
+    'partner-selection': {
+      q: "How do you decide which partners get attention?",
+      a: "The bar is whether the partner ships customer outcomes or just impressive collateral. Three signals translate. Bench depth in a specific industry, not generalist breadth. Willingness to publish reference work and stand behind it. Joint customer book that grows year over year on adoption metrics, not contract size. Partners who can't show all three after a fair window graduate out. The most important decision is who you don't manage."
+    },
+    'usage-based': {
+      q: "Have you held a number tied to customer behavior?",
+      a: "Yes. The Salesforce FSC rollout was measured on practitioner adoption across 60,000 users, not feature delivery. The Capital Markets account is measured on AUM growth, not consultant hours. I built the adoption framework Accenture now uses globally because feature delivery is a vanity metric in a behavior-change business. That's the same discipline a usage-based AI business needs."
+    },
+    'gsi': {
+      q: "Do you know how GSI delivery practices are built?",
+      a: "I have spent 15 years inside one. I know how Accenture builds a practice. The bench investment. The offering codification. The certification motion. The joint planning cadence with software vendors. I know what Accenture, Deloitte, Capgemini look like to a vendor partner team because I've been on the receiving end. I know which vendor behaviors actually change what architects do in customer engagements, and which are program theatre."
+    },
+    'agentic': {
+      q: "Do you have hands-on experience deploying agentic AI?",
+      a: "Yes. I led the rollout of a CCaaS platform with agentic voice capabilities for a major wealth management firm — AI conversational agents into the advisor and client servicing flow. The work surfaced what regulated enterprises actually need from agentic AI: guardrails, audit trails, escalation patterns, and human-in-the-loop discipline. That context translates directly to coaching partner architects on how to deploy these systems at scale, which is exactly what Anthropic's managed partners are going to need."
+    },
+    'alliances': {
+      q: "Comfortable sharing the partner relationship with alliances?",
+      a: "Yes. I work with multiple software vendors where one team owns the executive conversation and another owns the delivery interlock. That model works when the handoffs are written down, both sides train into them, and the teams talk weekly. It breaks when ego gets in the way. The role calls that out specifically. I'm wired for it."
+    },
+    'enablement': {
+      q: "Can you run scalable partner enablement?",
+      a: "The training programs I have built for Song peers are the proof. Prompt design workshops, hands-on training for QBR prep and pipeline analysis, written playbooks for client engagement research. The bar I set is behavior change in the next client engagement, not attendance numbers. Applied to partner architects, that same discipline is what keeps a managed partner book current as Claude evolves — refresh the training every time the platform ships a material change, measure the outcome in the next customer deployment."
+    },
+    'co-investment': {
+      q: "Have you stewarded co-investment funding?",
+      a: "Yes. At the Integrated Media Agency I managed allocation across $100M in annual media spend. The discipline I apply: fund the engagements where the partner is making real bench investment alongside us, where the customer outcome is measurable, where the work produces reference assets we can use to win the next ten. Funding consultant hours without outcomes is how vendor co-invest programs die."
+    }
+  };
+
+  function ask(key) {
+    const r = responses[key];
+    if (!r) return;
+    addMessage('user', r.q);
+    setTimeout(() => addMessage('bot', r.a), 220);
+  }
+
+  function addMessage(type, text) {
+    const w = document.getElementById('chatWindow');
+    const div = document.createElement('div');
+    div.className = 'chat-msg ' + type;
+    const who = type === 'user' ? 'Hiring Panel' : 'Nathan';
+    div.innerHTML = '<div class="who">' + who + '</div><div></div>';
+    div.lastChild.textContent = text;
+    w.appendChild(div);
+    w.scrollTop = w.scrollHeight;
+  }
+
+  function submitCustom() {
+    const input = document.getElementById('chatInput');
+    const q = input.value.trim();
+    if (!q) return;
+    addMessage('user', q);
+    input.value = '';
+
+    setTimeout(() => {
+      addMessage('bot',
+        "That's a question I'd rather answer personally than have a script handle. The email link below has your question pre-populated. I respond within a day."
+      );
+      const subj = encodeURIComponent("Head of Partner Success — Question: " + q.substring(0, 80));
+      const body = encodeURIComponent(
+        "Hi Nathan,\n\nQuestion from your interactive resume:\n\n" + q + "\n\nLooking forward to your response.\n"
+      );
+      document.getElementById('emailLink').href = 'mailto:nshafer2@gmail.com?subject=' + subj + '&body=' + body;
+      document.getElementById('emailLink').focus();
+    }, 220);
+  }
+</script>
+
+</body>
+</html>
